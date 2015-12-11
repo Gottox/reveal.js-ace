@@ -1,0 +1,21 @@
+{
+  "name": "reveal.js-ace",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Gottox/reveal.js-ace",
+  "authors": [
+    "Enno Boland"
+  ],
+  "description": "Embeds the ace sourcecode editor into reveal.js",
+  "keywords": [
+    "reveal",
+    "ace"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
