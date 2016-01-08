@@ -48,9 +48,10 @@ var RevealAce = window.RevealAce || (function() {
 			if(options.onchange)
 				editor.getSession().on('change', options.onchange);
 			if(iframe.dataset.onchange) {
-				onchange = new Function("value", "editor", onchange);
+				var onchange = new Function("value", "editor", iframe.dataset.onchange);
 				editor.getSession().on('change', function() {
-					return onchange(editor.getValue(), editor);
+					var value = editor.getValue();
+					return onchange(value, editor);
 				});
 			}
 			if(options.autoFocus) {
