@@ -47,8 +47,12 @@ var RevealAce = window.RevealAce || (function() {
 				(new Function("editor", iframe.dataset.oninit)).call(editor, editor);
 			if(options.onchange)
 				editor.getSession().on('change', options.onchange);
-			if(iframe.dataset.onchange)
-				editor.getSession().on('change', new Function("value", "editor", iframe.dataset.onchange));
+			if(iframe.dataset.onchange) {
+				onchange = new Function("value", "editor", onchange);
+				editor.getSession().on('change', function() {
+					return onchange(editor.getValue(), editor);
+				});
+			}
 			if(options.autoFocus) {
 				Reveal.addEventListener('slidechanged', slidechanged);
 				slidechanged({ currentSlide: Reveal.getCurrentSlide() })
@@ -61,6 +65,9 @@ var RevealAce = window.RevealAce || (function() {
 	var config = Reveal.getConfig();
 	var options = extend({
 		className: "ace",
+		autoFocus: false,
+		onchange: null,
+		oninit: null
 	}, config.ace || {});
 
 	var aces = document.getElementsByClassName(options.className);
