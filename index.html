@@ -84,6 +84,12 @@ Sourcecode!
 					<iframe width=600 height=140 class="ace" data-mode="ace/mode/javascript">alert(Reveal.ace.MYEDITOR.getValue())</iframe>
 					</h1>
 				</section>
+				<section>
+					<p>In Action:</p>
+					<iframe width=600 height=140 class="ace" data-mode="ace/mode/html" id="MYEDITOR">Sourcecode!</iframe><br>
+					<button onclick="alert(Reveal.ace.MYEDITOR.getValue())">alert(Reveal.ace.MYEDITOR.getValue())</button>
+					</h1>
+				</section>
 			</div>
 		</div>
 
@@ -91,11 +97,8 @@ Sourcecode!
 		<script src="js/reveal.js"></script>
 
 		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				history: true,
-
-				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
 					{ src: 'plugin/reveal.js-ace/ace.js' }
 				]
