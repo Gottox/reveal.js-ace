@@ -6,6 +6,7 @@
  */
 
 var RevealAce = window.RevealAce || (function() {
+	if(!Reveal.ace) Reveal.ace = {};
 	function extend(o) {
 		for(var i = 1; i < arguments.length; i++)
 			for(var key in arguments[i])
@@ -37,10 +38,18 @@ var RevealAce = window.RevealAce || (function() {
 				fontSize: "16pt"
 			});
 			editor.setValue(iframe.textContent);
+
+			// Configuration
 			if(aceConf.theme)
 				editor.setTheme(aceConf.theme);
 			if(aceConf.mode)
 				editor.getSession().setMode(aceConf.mode);
+			if(aceConf.autoFocus) {
+				Reveal.addEventListener('slidechanged', slidechanged);
+				slidechanged({ currentSlide: Reveal.getCurrentSlide() })
+			}
+
+			// Events
 			if(options.oninit)
 				options.oninit.call(editor, editor);
 			if(iframe.dataset.oninit)
@@ -51,12 +60,11 @@ var RevealAce = window.RevealAce || (function() {
 				var onchange = new Function("value", "editor", iframe.dataset.onchange);
 				editor.getSession().on('change', function() {
 					var value = editor.getValue();
-					return onchange(value, editor);
+					return onchange.call(editor, value, editor);
 				});
 			}
-			if(options.autoFocus) {
-				Reveal.addEventListener('slidechanged', slidechanged);
-				slidechanged({ currentSlide: Reveal.getCurrentSlide() })
+			if(iframe.id) {
+				Reveal.ace[iframe.id] = editor;
 			}
 		};
 		d.close();
