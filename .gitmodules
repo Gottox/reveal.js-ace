@@ -1,0 +1,4 @@
+[submodule "reveal.js-ace"]
+	path = plugin/reveal.js-ace
+	url = https://github.com/Gottox/reveal.js-ace.git
+	branch = master

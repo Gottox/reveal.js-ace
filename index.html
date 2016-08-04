@@ -7,10 +7,7 @@
 		<title>reveal.js</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
-
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="css/theme/serif.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -20,12 +17,61 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+
+		<style>
+			section.book {
+				text-align: left;
+			}
+			section.book h2:first-letter {
+					float:left;
+					font-size: 250px;
+					position:relative;
+					top:-30px;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h1>Reveal.js<br>ACE Plugin</h1>
+				</section>
+				<section class="book">
+					<h2>Once upon a time&#8230;</h2>
+					<p class="fragment">there was a speaker that liked live coding.</p>
+					<p class="fragment">But he struggled with multiple windows.</p>
+					<p class="fragment">Opened his IDE, switched back to his presentation.</p>
+					<p class="fragment">Got confused with the slide in the presentation.</p>
+				</section>
+				<section class="book">
+					<p>But then he found&#8230;</p>
+					<h2 class="fragment">ACE plugin for Reveal.js</h2>
+				</section>
+				<section>
+					<p>
+						A very easy method to include the well known <a href="https://ace.c9.io/">ACE-Editor</a>
+						into your <a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a> presentations
+					</p>
+
+					<iframe width=500 height=300 class="ace">ACE DEMO</iframe>
+				</section>
+				<section>
+					Two simple steps to include:
+					<ol>
+					<li class="fragment">
+						Add reveal.js-ace to your dependencies
+					<iframe width=600 height=140 class="ace" data-mode="ace/mode/javascript">// ...
+dependencies: [
+	{ src: 'plugin/reveal.js-ace/ace.js' }
+]
+// ...</iframe>
+					</li>
+					<li class="fragment">
+						Use it in the presentaion
+					<iframe width=600 height=140 class="ace" data-mode="ace/mode/html">&lt;iframe width=600 height=140 class="ace" data-mode="ace/mode/html"&gt;&lt;/iframe&gt; </iframe>
+					</li>
+					</ol>
+				</section>
 			</div>
 		</div>
 
@@ -39,10 +85,7 @@
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: 'plugin/reveal.js-ace/ace.js' }
 				]
 			});
 		</script>
