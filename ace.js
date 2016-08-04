@@ -24,7 +24,7 @@ var RevealAce = window.RevealAce || (function() {
 			"</body>"+
 			"</html>");
 		iframe.onload = function() {
-			function slidechanged( event ) {
+			function slidechanged(event) {
 				var e = iframe;
 				for(var e = iframe; e && e != event.currentSlide; e = e.parentNode);
 				if(!e)
