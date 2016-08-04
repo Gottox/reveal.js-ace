@@ -53,7 +53,11 @@
 						into your <a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a> presentations
 					</p>
 
-					<iframe width=500 height=300 class="ace">ACE DEMO</iframe>
+					<iframe width=500 height=140 class="ace">              _    ____ _____ 
+             / \  / ___| ____|
+            / _ \| |   |  _|
+           / ___ \ |___| |___
+          /_/   \_\____|_____|</iframe>
 				</section>
 				<section>
 					Two simple steps to include:
@@ -68,9 +72,17 @@ dependencies: [
 					</li>
 					<li class="fragment">
 						Use it in the presentaion
-					<iframe width=600 height=140 class="ace" data-mode="ace/mode/html">&lt;iframe width=600 height=140 class="ace" data-mode="ace/mode/html"&gt;&lt;/iframe&gt; </iframe>
+					<iframe width=600 height=140 class="ace" data-mode="ace/mode/html">&lt;iframe width=600 height=140 class="ace"
+	data-mode="ace/mode/html" id="MYEDITOR"&gt;
+Sourcecode!
+&lt;/iframe&gt;</iframe>
 					</li>
 					</ol>
+				</section>
+				<section>
+					<p>Access the editor from Javascript:</p>
+					<iframe width=600 height=140 class="ace" data-mode="ace/mode/javascript">alert(Reveal.ace.MYEDITOR.getValue())</iframe>
+					</h1>
 				</section>
 			</div>
 		</div>
