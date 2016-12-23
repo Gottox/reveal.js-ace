@@ -15,12 +15,16 @@ var RevealAce = window.RevealAce || (function() {
 	};
 	function mkEditor(iframe) {
 		var w = iframe.contentWindow, d = w.document;
+		var mode = iframe.getAttribute("mode");
 		d.write("<!DOCTYPE html><html>"+
 			"<head>"+
-			"<script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.9/ace.js' type='text/javascript' charset='utf-8'></script>"+
-			"</head>"+
+			"<script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js' type='text/javascript' charset='utf-8'></script>")
+		if (mode) {
+			d.write("<script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/mode-" + mode + ".js' type='text/javascript' charset='utf-8'></script>");
+		}
+		d.write("</head>"+
 			"<body>"+
-			"<div id='editor' style='position:absolute; left:0; top:0; bottom:0; right:0;'>"+
+			"<div id='editor' style='position:absolute; left:0; top:0; bottom:0; right:0;'>" +
 			iframe.innerHTML+ // innerHTML is already escaped
 			"</div>"+
 			"</body>"+
@@ -39,6 +43,11 @@ var RevealAce = window.RevealAce || (function() {
 			editor.setOptions({
 				fontSize: "16pt"
 			});
+
+			if (mode) {
+				var fetched_mode = w.ace.require("ace/mode/" + mode).Mode;
+				editor.session.setMode(new fetched_mode());
+			}
 
 			// Configuration
 			if(aceConf.theme)
