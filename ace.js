@@ -15,7 +15,7 @@ var RevealAce = window.RevealAce || (function() {
 	};
 	function mkEditor(iframe) {
 		var w = iframe.contentWindow, d = w.document;
-		var mode = iframe.getAttribute("mode");
+		var mode = iframe.dataset.mode;
 		d.write("<!DOCTYPE html><html>"+
 			"<head>"+
 			"<script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js' type='text/javascript' charset='utf-8'></script>")
