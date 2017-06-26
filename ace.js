@@ -18,9 +18,9 @@ var RevealAce = window.RevealAce || (function() {
 		var mode = iframe.dataset.mode;
 		d.write("<!DOCTYPE html><html>"+
 			"<head>"+
-			"<script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js' type='text/javascript' charset='utf-8'></script>")
+			"<script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.7/ace.js' type='text/javascript' charset='utf-8'></script>")
 		if (mode) {
-			d.write("<script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/mode-" + mode + ".js' type='text/javascript' charset='utf-8'></script>");
+			d.write("<script src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.7/mode-" + mode + ".js' type='text/javascript' charset='utf-8'></script>");
 		}
 		d.write("</head>"+
 			"<body>"+
