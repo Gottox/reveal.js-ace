@@ -62,12 +62,12 @@ var RevealAce = window.RevealAce || (function() {
 			// Events
 			if(options.oninit)
 				options.oninit.call(editor, editor);
-			if(iframe.dataset.oninit)
-				(new Function("editor", iframe.dataset.oninit)).call(editor, editor);
+			if(iframe.dataset.init)
+				(new Function("editor", iframe.dataset.init)).call(editor, editor);
 			if(options.onchange)
 				editor.getSession().on('change', options.onchange);
-			if(iframe.dataset.onchange) {
-				var onchange = new Function("value", "editor", iframe.dataset.onchange);
+			if(iframe.dataset.change) {
+				var onchange = new Function("value", "editor", iframe.dataset.change);
 				editor.getSession().on('change', function() {
 					var value = editor.getValue();
 					return onchange.call(editor, value, editor);
